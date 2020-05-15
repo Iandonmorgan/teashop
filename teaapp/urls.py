@@ -8,4 +8,5 @@ urlpatterns = [
     path('teas', home, name='home'),
     path('teas/form', tea_form, name='tea_form'),
     path('teas/<int:tea_id>/', tea_detail, name='tea_detail'),
+    path('teas/<int:tea_id>/form', tea_edit_form, name='tea_edit_form'),
 ]
