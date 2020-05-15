@@ -6,7 +6,7 @@
     <ol class="teas">
     {% for tea in teas %}
     <li>
-        <div>{{ tea.name }}, {{ tea.flavor }} (id: {{ tea.id }})</div>
+        <div><a href="{% url 'teaapp:tea_detail' tea.id %}">{{ tea.name }}</a>, {{ tea.flavor }} (id: {{ tea.id }})</div>
     </li>
     {% endfor %}
     </ol>
