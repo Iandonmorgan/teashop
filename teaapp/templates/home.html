@@ -1,7 +1,8 @@
 {% extends 'shared/base.html' %}
 
 {% block content %}
-<h1>Welcome to the Tea Shop</h1>
+    <h1>Welcome to the Tea Shop</h1>
+    <a href="{% url 'teaapp:tea_form' %}">Add Tea</a>
     <ol class="teas">
     {% for tea in teas %}
     <li>
