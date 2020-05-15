@@ -1,21 +1,10 @@
 # Welcome to the Tea Shop
 
-You have been tasked to build an app that will allow the employees of the tea shop to manage the different teas that the shop sells.
+This is an app that will allow the employees of the tea shop to manage the different teas that the shop sells.
 
 ## Project Setup
 
 * Clone down the repo and `cd` into it
-
-* Change this from a git repo to a regular directory:
-  * `rm -rf .git`
-
-* Create a new repository on Github and make your first commit with this boilerplate code:
-  * Create a brand new repository under your account on Github
-  * `git init`
-  * `git add .`
-  * `git commit -m "First commit with boilerplate code"`
-  * `git remote add origin your-new-repos-ssh-remote-url`
-  * `git push -u origin master`
 
 * Create your OSX/Linux OS virtual environment in Terminal:
 
