@@ -1,0 +1,25 @@
+{% extends 'shared/base.html' %}
+    {% block content %}
+      <h1>Tea Form</h1>
+      {% comment %} {% if tea.id is not None %}
+          <form action="{% url 'teappa:tea_edit_form' tea.id %}" method="POST">
+      {% else %} {% endcomment %}
+          <form action="{% url 'teaapp:tea_form' %}" method="POST">
+      {% comment %} {% endif %} {% endcomment %}
+          {% csrf_token %}
+        <fieldset>
+            <label for="name">Name: </label>
+            <input id="name" type="text" name="name" {% if tea %} value="{{tea.name}}" {% else %} value="" {% endif %} >
+        </fieldset>
+        <fieldset>
+            <label for="flavor">Flavor: </label>
+            <input id="flavor" type="text" name="flavor" {% if tea %} value="{{tea.flavor}}" {% else %} value="" {% endif %} >
+        </fieldset>
+        {% if tea.id is not None %}
+          <input type="hidden" name="actual_method" value="PUT">
+          <input type="submit" value="Update" />
+        {% else %}
+          <input type="submit" value="Create" />
+        {% endif %}
+      </form>
+    {% endblock %}
