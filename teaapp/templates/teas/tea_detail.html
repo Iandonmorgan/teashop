@@ -17,13 +17,12 @@
                     {% endif %}
                 {% endfor %}
 	           </ul></div>
-          <div>Flavor: {{ tea.flavor }}</div>
-      </section>
-
-      {% comment %} <section id="tea-actions" style="display:flex;">
-          <form action="{% url 'teaapp:tea_edit_form' tea.id %}" method="GET">
-              {% csrf_token %}
-              <button>Edit</button>
-          </form>
-      </section> {% endcomment %}
+            <div>Flavor: {{ tea.flavor }}</div>
+            </section>
+            <section id="tea-actions" style="display:flex;">
+                <form action="{% url 'teaapp:tea_edit_form' tea.id %}" method="GET">
+                    {% csrf_token %}
+                    <button>Edit</button>
+                </form>
+            </section>
     {% endblock %}

@@ -1,15 +1,15 @@
 {% extends 'shared/base.html' %}
     {% block content %}
       <h1>Tea Form</h1>
-      {% comment %} {% if tea.id is not None %}
-          <form action="{% url 'teappa:tea_edit_form' tea.id %}" method="POST">
-      {% else %} {% endcomment %}
-          <form action="{% url 'teaapp:tea_form' %}" method="POST">
-      {% comment %} {% endif %} {% endcomment %}
-          {% csrf_token %}
+        {% if tea.id is not None %}
+            <form action="{% url 'teaapp:tea_edit_form' tea.id %}" method="POST">
+        {% else %}
+            <form action="{% url 'teaapp:tea_form' %}" method="POST">
+        {% endif %}
+        {% csrf_token %}
         <fieldset>
             <label for="name">Name: </label>
-            <input id="name" type="text" name="name" {% if tea %} value="{{tea.name}}" {% else %} value="" {% endif %} >
+            <input id="name" type="text" name="name" {% if tea %} value="{{tea.name}}" readonly {% else %} value="" {% endif %} >
         </fieldset>
         <fieldset>
             <label for="flavor">Flavor: </label>
