@@ -1,6 +1,16 @@
 # Welcome to the Tea Shop
 
-This is an app that will allow the employees of the tea shop to manage the different teas that the shop sells.
+This is an app that will allow the employees of the tea shop to manage the different teas that the shop sells. Please note the usage instructions, below.
+
+1. When a user navigates to the root URL of the application (`/`), they should see a list of all the teas in alphabetical order.
+
+1. Above the list of teas, there is a link that presents the user with a form to add a new tea by providing the name and flavor. When the form is submitted, the user should be directed to `/` and should see the newly added tea in the list.
+
+1. Each tea in the list is hyper-linked to details for every item on the list of teas. When the user clicks on this link, they should see the name of the tea, the flavor, the names of the many packaging methods that are available for that tea and the longevity of each packaging method for that specific tea.
+
+1. Note the DELETE button next to each packaging method listed on the details page for a tea. When the user clicks this button, that packaging method should be deleted for that tea. **This action does not delete the packaging itself!**
+
+1. Note the EDIT button at the bottom of the tea details page. When the user clicks on the button, they are presented with a form that lets them edit only the flavor of the tea. The name of the tea is "read only".
 
 ## Project Setup
 
@@ -29,23 +39,9 @@ This is an app that will allow the employees of the tea shop to manage the diffe
   * `python manage.py loaddata packagings`
   * `python manage.py loaddata tea_packagings`
 
-* Make a copy of `teaapp/views/connection.py.example` and remove the `.example` extension and change the path to the database 
+* Make a copy of `teaapp/views/connection.py.example` and remove the `.example` extension and change the path to the database (db.sqlite3 file).
 
-* Fire up your dev server and get to work!
+* Fire up your dev server and enjoy some tea!
 
   * `python manage.py runserver`
 
-
-## Requirements
-
-You need to meet the following requirements in the order they are listed since they build on each other. After each requirement has been met, please make sure you make a commit with a detailed commit message explaining what feature has been completed. You **do not** need to worry about authentication for this application.
-
-1. When a user navigates to the root URL of the application (`/`), they should see a list of all the teas in alphabetical order.
-
-1. Above the list of teas, provide a link that presents the user with a form to add a new tea by providing the name and flavor. When the form is submitted, the user should be directed to `/` and should see the newly added tea in the list.
-
-1. Add a link to view the details of each tea for every item on the list of teas. When the user clicks on this link, they should see the name of the tea, the flavor, the names of the many packaging methods that are available for that tea and the longevity of each packaging method for that specific tea.
-
-1. Add a DELETE button next to each packaging method listed on the details page for a tea. When the user clicks this button, that packaging method should be deleted for that tea. **This action should not delete the packaging itself!**
-
-1. Add an EDIT button at the bottom of the tea details page. When the user clicks on the button, they should be presented with a form that lets them edit only the flavor of the tea. 
