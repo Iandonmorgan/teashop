@@ -15,6 +15,7 @@ def get_tea(tea_id):
             t.name,
             t.flavor,
             tp.longevity_in_months longevity,
+            tp.id teapackaging_id,
             p.name packaging_name,
             p.handmade,
             p.production_location
@@ -36,22 +37,21 @@ def tea_detail(request, tea_id):
             'tea_packaging': tea_packaging
         }
         return render(request, template_name, context)
+    elif request.method == 'POST':
+        form_data = request.POST
+        if (
+            "actual_method" in form_data
+            and form_data["actual_method"] == "DELETE"
+        ):
+            with sqlite3.connect(Connection.db_path) as conn:
+                db_cursor = conn.cursor()
 
-    # elif request.method == 'POST':
-    #     form_data = request.POST
-    #     if (
-    #         "actual_method" in form_data
-    #         and form_data["actual_method"] == "DELETE"
-    #     ):
-    #         with sqlite3.connect(Connection.db_path) as conn:
-    #             db_cursor = conn.cursor()
+                db_cursor.execute("""
+                    DELETE FROM teaapp_teapackaging
+                    WHERE id = ?
+                """, (tea_id,))
 
-    #             db_cursor.execute("""
-    #                 DELETE FROM teaapp_tea
-    #                 WHERE id = ?
-    #             """, (tea_id,))
-
-    #         return redirect(reverse('teaapp:home'))
+            return redirect(reverse('teaapp:home'))
 
 def get_teapackaging(tea_id):
     with sqlite3.connect(Connection.db_path) as conn:
@@ -83,6 +83,7 @@ def create_tea(cursor, row):
     tea.flavor = _row["flavor"]
 
     teapackaging = TeaPackaging()
+    teapackaging.id = _row["teapackaging_id"]
     teapackaging.longevity = _row["longevity"]
 
     packaging = Packaging()
