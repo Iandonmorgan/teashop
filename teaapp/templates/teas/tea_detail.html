@@ -1,0 +1,26 @@
+{% extends 'shared/base.html' %}
+    {% block content %}
+      <section id="tea-detail">
+          <h1>{{ tea.name }}</h1>
+          <div>Tea Packaging: <ul>
+                {% for row in tea_packaging %}
+                    {% if row.packaging_name is not None %}
+                        <li>{{ row.packaging_name }} (Longevity: {{ row.longevity }} months)</li>
+                    {% endif %}
+                {% endfor %}
+	           </ul></div>
+          <div>Flavor: {{ tea.flavor }}</div>
+      </section>
+
+      {% comment %} <section id="tea-actions" style="display:flex;">
+          <form action="{% url 'teaapp:tea_detail' tea.id %}" method="POST">
+              {% csrf_token %}
+              <input type="hidden" name="actual_method" value="DELETE">
+              <button>Delete</button>
+          </form>
+          <form action="{% url 'teaapp:tea_edit_form' tea.id %}" method="GET">
+              {% csrf_token %}
+              <button>Edit</button>
+          </form>
+      </section> {% endcomment %}
+    {% endblock %}
